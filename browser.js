@@ -30,7 +30,7 @@ async function get_data(signer) {
 		let data = await res.json();
 		console.log(data);
 	} catch (err) {
-		console.error(`failed to get data ${error}`);
+		console.error(`failed to get data ${err}`);
 	}
 }
 

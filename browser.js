@@ -4,7 +4,7 @@ import randomUseragent from "random-useragent";
 let url =
 	"https://m.tiktok.com/api/item_list/?count=30&id=1&type=5&secUid=&maxCursor=0&minCursor=0&sourceType=12&appId=1233&region=CA&language=en";
 
-async function generate_signer() {
+export async function generate_signer() {
 	const signer = new Signer(); // Create new signer
 	signer.userAgent = randomUseragent.getRandom();
 	await signer.init(); // Create page with. Returns promise
@@ -15,7 +15,7 @@ async function generate_signer() {
 	return [signature, navigator];
 }
 
-async function get_data(signer) {
+export async function get_data(signer) {
 	try {
 		let [signature, navigator] = await signer;
 		let res = await fetch(url, {
@@ -34,9 +34,4 @@ async function get_data(signer) {
 	}
 }
 
-setInterval(() => get_data(generate_signer()), 10000);
-
-module.exports = {
-	generate_signer,
-	get_data,
-};
+//setInterval(() => get_data(generate_signer()), 10000);

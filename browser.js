@@ -35,3 +35,8 @@ async function get_data(signer) {
 }
 
 setInterval(() => get_data(generate_signer()), 10000);
+
+module.exports = {
+	generate_signer,
+	get_data,
+};
